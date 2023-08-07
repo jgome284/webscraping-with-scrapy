@@ -20,17 +20,30 @@ print( "There are {0} elements in the HTML document.").format(len(sel.xpath('//*
 mc_selector = '//*[@id="content"]/div/div[@class="byo-block -narrow wysiwyg-block wysiwyg "]/p'
 
 #create a selector list of all paragraph elements within the main content blocks
-mc_list = sel.xpath(mc_selector) # select all paragraph elements
+mc_list = sel.xpath(mc_selector) 
 
 # Print out the number of elements in the xpath selector
 print( "There are {0} elements in the xpath selector.").format(len(mc_list))
 
-#extract main content paragraph element text
+#extract main content paragraph elements
 mc_extracted = mc_list.extract()
 
-#display main content paragraph text
+#display main content paragraph elements
 for content in mc_extracted:
     print(content)
+
+#create a selector string of all paragraph text within the main context section
+mt_selector = '//*[@id="content"]//p//text()'
+
+#create a selector list of all main content paragraph text
+mt_list = sel.xpath(mt_selector)
+
+#extract main content paragraph text
+mt_extracted = mt_list.extract()
+
+#display main content paragraph text
+for text in mt_extracted:
+    print(text)
 
 #create hyperlinks xpath string
 hyperlinks = '//a/@href'
